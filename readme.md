@@ -5,7 +5,6 @@
 This program uses **MAH** coding Method to compress the ip Data given, store the encoded data into memroy, and wait to be searched. When a query request occurs, the program searches the database with key words and respond with query results to users.
 
 ## How to use
----
 ### Clone me first
 
 ``` shell
@@ -28,7 +27,6 @@ $ bitmap
 ```
 
 ## Usage
----
 
 ### Query Format
 
@@ -53,3 +51,13 @@ continue or not?  y/n
 n
 
 ```
+### And ...
+
+Continue to search or quit the program.
+
+## Authors
+Qin Zixin
+Xiong Zheng
+Fan Chengze
+
+from Tsinghua University
