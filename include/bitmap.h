@@ -16,8 +16,8 @@ struct BM
 			data[i] = 0;
 	}
 };
-typedef std::vector<BM> bitmap;
-typedef vector<int> final_bitmap[256*8+1];
+typedef std::vector<BM> Bitmap0;
+//typedef vector<int> final_bitmap[256*8+1];
 
 typedef std::vector<IP> IPData;
 //typedef std::vector<bool> Bitmap;
@@ -39,8 +39,10 @@ class BitMap {
   void ResponseQuery (const int query_index []);
  
  private:
+  Bitmap0 bitmap_ini;
+	
   IPData ip_data;      // each element of ip_data saves one row of ipdata info
-  Bitmap bitmap[256*8];      // each element of bitmap is one column of the overall bitmaps
+  Bitmap bitmap[256*8+1];      // each element of bitmap is one column of the overall bitmaps
   CompressedBitmap compressed_bitmap[256*8];      // each element of bitmapWAH is transfered from the corresponding element in bitmap in the form of WAH
   int sample_number;
 }
