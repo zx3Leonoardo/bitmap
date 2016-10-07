@@ -9,7 +9,7 @@ This program uses **MAH** coding Method to compress the ip Data given, store the
 
 ``` shell
 
-$ git clone git@github.com:MasterXiong/bitmap.git
+$ git clone git@github.com:fancz2002/bitmap.git
 
 ```
 
