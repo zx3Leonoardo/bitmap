@@ -3,6 +3,7 @@
 void ReadData(string data_path)
 {
   IP ip;
+	BM bitmap_row;
   string str;
   char *ch,*token;
   int cnt=0;
