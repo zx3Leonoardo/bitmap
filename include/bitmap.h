@@ -20,7 +20,8 @@ typedef std::vector<BM> bitmap;
 typedef vector<int> final_bitmap[256*8+1];
 
 typedef std::vector<IP> IPData;
-typedef std::vector<bool> Bitmap;
+//typedef std::vector<bool> Bitmap;
+typedef std::vector<int> Bitmap;
 typedef std::vector<int> CompressedBitmap;
 
 class BitMap {
