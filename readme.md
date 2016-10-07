@@ -23,7 +23,7 @@ $ cd bitmap && make
 
 ### And enjoy
 ``` shell
-$ bitmap
+$ ./bitmap.out
 ```
 
 ## Usage
