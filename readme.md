@@ -56,8 +56,10 @@ n
 Continue to search or quit the program.
 
 ## Authors
-Qin Zixin
-Xiong Zheng
-Fan Chengze
+**Qin Zixin**
+
+**Xiong Zheng**
+
+**Fan Chengze**
 
 from Tsinghua University
