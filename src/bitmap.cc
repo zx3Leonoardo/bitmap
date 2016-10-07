@@ -1,6 +1,6 @@
 #include "bitmap.h"
 
-void ReadData(string data_path)
+void BitMap::ReadData(const string &data_path)
 {
   IP ip;
   BM bitmap_row;
@@ -22,35 +22,34 @@ void ReadData(string data_path)
           if(cnt<=7 && atoi(token)<256)
             {
               ip.data[cnt] = atoi(token);
-              cnt++;
+              ++cnt;
             }
           token=strtok(NULL,",");
         }
       ip_data.push_back(ip);
       cnt = 0;
     }
+  
   unsigned int i,j,k;
-	for(i=0;i<ip_data.size();i++)
-	{
-		for(j=0;j<8;j++)
-		{
-			bitmap_row.data[j*256+int(ip_data[i].data[j])-1] = 1;
-		}
-		bitmap_ini.push_back(bitmap_row);
-		for(k=0;k<256*8;k++)
-			bitmap_row.data[k] = 0;
-	}
-	//transform
-	for(i=0;i<256*8;i++)
-	{
-		for(j=0;j<ip_data.size();j++)
-			bitmap[i].push_back(bitmap_ini[j].data[i]);
-	}
-	file.close();
+  for(i = 0;i < ip_data.size(); ++i) {
+    for(j = 0;j < 8; ++j) {
+      bitmap_row.data[j * 256+int(ip_data[i].data[j])-1] = 1;
+    }
+    bitmap_ini.push_back(bitmap_row);
+    for( k = 0;k < 256 * 8; ++k)
+      bitmap_row.data[k] = 0;
+  }
+
+  //transform
+  for(i = 0;i < 256 * 8; ++i) {
+    for(j = 0;j < ip_data.size(); ++j)
+      bitmap[i].push_back(bitmap_ini[j].data[i]);
+  }
+  file.close();
   sample_number = ip_data.size();
 }
 
-CompressedBitmap CompressSingleBitmap (Bitmap &bitmap) {
+CompressedBitmap Bitmap::CompressSingleBitmap (Bitmap &bitmap) {
   CompressedBitmap compressed_bitmap;
 
   // align bitmap to n*31 bit length
@@ -110,13 +109,13 @@ CompressedBitmap CompressSingleBitmap (Bitmap &bitmap) {
   return compressed_bitmap;
 }
 
-void Compress () {
+void BitMap::Compress () {
   for (int i = 0; i < 256 * 8; ++i) {
     compressed_bitmap[i] = CompressSingleBitmap(bitmap[i]);
   }
 }
 
-Bitmap DecompressSingleBitmap (const CompressedBitmap &compressed_bitmap) {
+Bitmap BitMap::DecompressSingleBitmap (const CompressedBitmap &compressed_bitmap) {
   Bitmap bitmap;
   int temp;
   bool current = 0;
@@ -139,7 +138,7 @@ Bitmap DecompressSingleBitmap (const CompressedBitmap &compressed_bitmap) {
   return bitmap;
 }
 
-void ResponseQuery (const int query_index[8]) {
+void BitMap::ResponseQuery (const int query_index[8]) {
   Bitmap search_index(sample_number, true);
   Bitmap temp;
 

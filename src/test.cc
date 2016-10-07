@@ -7,10 +7,10 @@ using namespace std;
 
 int main() {
   string data_path = "/home/xiongzheng/bitmap/data/ipData.txt";
-  BitMap bitmap_test = new BitMap();
-  bitmap_test.ReadData(data_path);
+  BitMap *bitmap_test = new BitMap();
+  bitmap_test->ReadData(data_path);
   cout << "bitmap has been established" << endl;
-  bitmap_test.Compress();
+  bitmap_test->Compress();
   cout << "bitmap has been compressed" << endl;
 
   int query_index[8];
@@ -20,7 +20,7 @@ int main() {
     for (int i = 0; i < 8; ++i) {
       cin >> query_index[i];
     }
-    bitmap_test.ResponseQuery(query_index);
+    bitmap_test->ResponseQuery(query_index);
     cout << "continue or not?  y/n" << endl;
     char option;
     cin >> option;

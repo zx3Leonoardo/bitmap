@@ -7,18 +7,15 @@ struct IP {
   unsigned char data[8];
 };
 
-struct BM
-{
-	int data[256*8+1];
-	BM()
-	{
-		for(int i=0;i<256*8;i++)
-			data[i] = 0;
-	}
+struct BM {
+  int data[256 * 8 + 1];
+  BM() {
+    for(int i = 0;i < 256 * 8; ++i)
+      data[i] = 0;
+  }
 };
-typedef std::vector<BM> Bitmap0;
-//typedef vector<int> final_bitmap[256*8+1];
 
+typedef std::vector<BM> Bitmap0;
 typedef std::vector<IP> IPData;
 //typedef std::vector<bool> Bitmap;
 typedef std::vector<int> Bitmap;
@@ -28,7 +25,7 @@ class BitMap {
  public:
   
   // ReadData: import the path of ipdata.txt, update ip_data and bitmap
-  void ReadData (string data_path); 
+  void ReadData (const string &data_path); 
 
   // compress bitmap to compressed_bitmap
   CompressedBitmap CompressSingleBitmap (Bitmap &bitmap);
@@ -39,10 +36,9 @@ class BitMap {
   void ResponseQuery (const int query_index []);
  
  private:
-  Bitmap0 bitmap_ini;
-	
   IPData ip_data;      // each element of ip_data saves one row of ipdata info
-  Bitmap bitmap[256*8+1];      // each element of bitmap is one column of the overall bitmaps
-  CompressedBitmap compressed_bitmap[256*8];      // each element of bitmapWAH is transfered from the corresponding element in bitmap in the form of WAH
+  Bitmap0 bitmap_ini;
+  Bitmap bitmap[256 * 8 + 1];      // each element of bitmap is one column of the overall bitmaps
+  CompressedBitmap compressed_bitmap[256 * 8];      // each element of bitmapWAH is transfered from the corresponding element in bitmap in the form of WAH
   int sample_number;
 }
