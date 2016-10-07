@@ -7,6 +7,18 @@ struct IP {
   unsigned char data[8];
 };
 
+struct BM
+{
+	int data[256*8+1];
+	BM()
+	{
+		for(int i=0;i<256*8;i++)
+			data[i] = 0;
+	}
+};
+typedef std::vector<BM> bitmap;
+typedef vector<int> final_bitmap[256*8+1];
+
 typedef std::vector<IP> IPData;
 typedef std::vector<bool> Bitmap;
 typedef std::vector<int> CompressedBitmap;
