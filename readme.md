@@ -30,9 +30,9 @@ $ ./bitmap.out
 
 ### Query Format
 
-Input 8 integers(0-255) indicating the 8 blocks of the source ip and destination ip, Press Enter.
+Input 8 integers(0-255) indicating the 8 blocks of the source ip and destination ip and press Enter.
 
-Then the program does the rest of it and return with your result.
+Then the program takes care of the rest of it and proudly returns with your result.
 
 ``` shell
 mark@ubuntu:~/Documents$ ./bitmap
