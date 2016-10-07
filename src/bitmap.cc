@@ -36,7 +36,7 @@ void ReadData(string data_path)
 		{
 			bitmap_row.data[j*256+int(ip_data[i].data[j])-1] = 1;
 		}
-		bitmap.push_back(bitmap_row);
+		bitmap_ini.push_back(bitmap_row);
 		for(k=0;k<256*8;k++)
 			bitmap_row.data[k] = 0;
 	}
@@ -44,7 +44,7 @@ void ReadData(string data_path)
 	for(i=0;i<256*8;i++)
 	{
 		for(j=0;j<ip_data.size();j++)
-			final_bitmap[i].push_back(bitmap[j].data[i]);
+			bitmap[i].push_back(bitmap_ini[j].data[i]);
 	}
 	file.close();
   sample_number = ip_data.size();
