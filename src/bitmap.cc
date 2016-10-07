@@ -1,14 +1,14 @@
 #include "bitmap.h"
 
-void BitMap::ReadData(const string &data_path)
+void BitMap::ReadData(const std::string &data_path)
 {
   IP ip;
   BM bitmap_row;
-  string str;
+  std::string str;
   char *ch,*token;
   int cnt=0;
   
-  ifstream file(data_path);
+  std::ifstream file(data_path);
 
   while(getline(file,str))
     {
@@ -49,7 +49,7 @@ void BitMap::ReadData(const string &data_path)
   sample_number = ip_data.size();
 }
 
-CompressedBitmap Bitmap::CompressSingleBitmap (Bitmap &bitmap) {
+CompressedBitmap BitMap::CompressSingleBitmap (Bitmap &bitmap) {
   CompressedBitmap compressed_bitmap;
 
   // align bitmap to n*31 bit length
@@ -117,7 +117,7 @@ void BitMap::Compress () {
 
 Bitmap BitMap::DecompressSingleBitmap (const CompressedBitmap &compressed_bitmap) {
   Bitmap bitmap;
-  int temp;
+  unsigned int temp;
   bool current = 0;
 
   for (int i = 0; i < compressed_bitmap.size(); ++i) {
@@ -151,14 +151,12 @@ void BitMap::ResponseQuery (const int query_index[8]) {
     }
   }
 
-  IP output;
   int count = 0;
   for (int i = 0; i < sample_number; ++i) {
-    if (search_index == 1) {
-      output = ip_data[i].data;
+    if (search_index[i] == 1) {
       ++count;
       for (int j = 0; j < 8; ++j) {
-        std::cout << output[j] << "  ";
+        std::cout << ip_data[i].data[j] << "  ";
       }
       std::cout << std::endl;
     }

@@ -25,7 +25,7 @@ class BitMap {
  public:
   
   // ReadData: import the path of ipdata.txt, update ip_data and bitmap
-  void ReadData (const string &data_path); 
+  void ReadData (const std::string &data_path); 
 
   // compress bitmap to compressed_bitmap
   CompressedBitmap CompressSingleBitmap (Bitmap &bitmap);
