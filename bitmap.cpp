@@ -6,7 +6,7 @@ void BitMap::ReadData(const std::string &data_path)
 	IP ip;
 	std::string str;
 	char *ch, *token;
-	int cnt = 0;
+	int cnt = 0,flag = 0;
 
 	std::ifstream file("ipData.txt",std::ifstream::in);
 
