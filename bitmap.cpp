@@ -12,19 +12,35 @@ void BitMap::ReadData(const std::string &data_path)
 
 	while (getline(file, str))
 	{
-		ch = new char[str.length() + 1];
-		std::strcpy(ch, str.c_str());
+		ch =new char[str.length()+1];
+      		strcpy(ch,str.c_str());
 
-		token = strtok(ch, ",");
+      		token = strtok(ch,",");  
 
-		while (token != NULL)
-		{
-			if (cnt <= 7 && atoi(token) < 256)
+     		while(token!=NULL)
+      		{
+			if (cnt<4)
 			{
 				ip.data[cnt] = atoi(token);
-				++cnt;
+				cnt++;
 			}
-			token = strtok(NULL, ",");
+			else 
+			{
+				if (cnt<=8 && cnt>4)
+				{
+					ip.data[cnt-1] = atoi(token);
+					cnt++;
+				}
+				else 
+					if (cnt==4)
+						flag++;
+			}
+			token=strtok(NULL,",");
+			if(flag==1)
+			{
+				flag = 0;
+				cnt = 5;
+			}
 		}
 		ip_data.push_back(ip);
 		cnt = 0;
